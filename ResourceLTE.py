@@ -1,7 +1,7 @@
 from dados import *
 
-class calcTputLTE:
-    def __init__(self, bw, prb, sp, cp, mimo, modulation, msc, tbs, valueTBS, carrieAggregation):
+class ResourceLTE:
+    def __init__(self, bw, prb, sp, cp, mimo, modulation, msc, tbs, valueTBS, carrieAggregation, resourceElement):
         self.bw = bw
         self.prb = prb
         self.sp = sp
@@ -12,8 +12,10 @@ class calcTputLTE:
         self.tbs = tbs
         self.valueTBS = valueTBS
         self.carrieAggregation = carrieAggregation
+        self.resourceElement = resourceElement
 
     def calcTputLTE(self):
         return (self.valueTBS * 1000 * self.mimo * self.carrieAggregation).__round(2)
     
+    def 
     
