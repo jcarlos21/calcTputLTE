@@ -1,4 +1,4 @@
-
+from tkinter import messagebox
 from tkinter import *
 from tkinter import Tk
 import tkinter as tk
@@ -23,9 +23,9 @@ class Application:
 
         menubar = Menu(root)
         file1 = Menu(root, tearoff=False)
-        file1.add_command(label="Exit")
+        file1.add_command(label="Exit", command=self.exitLogin)
         menubar.add_cascade(label="File", menu=file1)
-        root.config(menu=menubar)
+        self.root.config(menu=menubar)
 
         # Parâmetros de Entrada
 
@@ -85,18 +85,45 @@ class Application:
         self.ouputFrame = LabelFrame(self.root, text='Output Parameters', width=500, height=160, font=('TkDefaultFont', 10, "bold"))
         self.ouputFrame.grid(row=1, column=0, padx=25, pady=0)
 
-        # Resultados
+        # Mensagens com os resultados
 
         self.PRBlabel = Label(self.ouputFrame, text='PBR', wraplength=245, anchor=W)
         self.PRBlabel.place(x=32, y=5)
-
         self.l1 = Label(self.ouputFrame, text=100, borderwidth=2, relief="groove", width=5)
         self.l1.place(x=25, y=27)
         
+        self.TBSlabel = Label(self.ouputFrame, text='TBS INDEX', wraplength=245, anchor=W)
+        self.TBSlabel.place(x=84, y=5)
+        self.l2 = Label(self.ouputFrame, text=100, borderwidth=2, relief="groove", width=5)
+        self.l2.place(x=95, y=27)
+
+        self.TBSValuelabel = Label(self.ouputFrame, text='TBS VALUE', wraplength=245, anchor=W)
+        self.TBSValuelabel.place(x=154, y=5)
+        self.l3 = Label(self.ouputFrame, text=75376, borderwidth=2, relief="groove", width=5)
+        self.l3.place(x=165, y=27)
+
+        self.MODULADTIONlabel = Label(self.ouputFrame, text='MODULATION', wraplength=245, anchor=W)
+        self.MODULADTIONlabel.place(x=229, y=5)
+        self.l4 = Label(self.ouputFrame, text='64 QAM', borderwidth=2, relief="groove", width=7)
+        self.l4.place(x=240, y=27)
+
+        self.RElabel = Label(self.ouputFrame, text='RE NUMBER', wraplength=245, anchor=W)
+        self.RElabel.place(x=320, y=5)
+        self.l5 = Label(self.ouputFrame, text=84, borderwidth=2, relief="groove", width=5)
+        self.l5.place(x=335, y=27)
+
+        self.CPlabel = Label(self.ouputFrame, text='SYMBOLS QUANT', wraplength=245, anchor=W)
+        self.CPlabel.place(x=390, y=5)
+        self.l6 = Label(self.ouputFrame, text=7, borderwidth=2, relief="groove", width=5)
+        self.l6.place(x=420, y=27)
 
     def naoFazNada(self):
         pass
 
+    def exitLogin(self):
+        result = messagebox.askquestion('System', 'Are you sure you want to exit?', icon="warning")
+        if result == 'yes':
+            self.root.destroy()  
 
 
 root = Tk()
