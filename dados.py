@@ -1,10 +1,10 @@
 # Tabela de dados 1
-bw = [1.4, 3, 5, 10, 15, 20]
+bw = ['1.4 MHz', '3 MHz', '5 MHz', '10 MHz', '15 MHz', '20 MHz']
 rb = [6, 15, 25, 50, 75, 100]
 sp = [72, 180, 300, 600, 900, 1200]
 
 def PRB_SP(dado):  # deve receber o valor de largura de banda (ex.: 20 MHz)
-    idBW = bw.index(dado)
+    idBW = bw.index()
     return rb[idBW], sp[idBW]  # retorna uma tupla com dois valores
 
 # Tabela de dados 2: MIMO
