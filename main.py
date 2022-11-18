@@ -89,33 +89,52 @@ class Application:
 
         self.PRBlabel = Label(self.ouputFrame, text='PBR', wraplength=245, anchor=W)
         self.PRBlabel.place(x=32, y=5)
-        self.l1 = Label(self.ouputFrame, text=100, borderwidth=2, relief="groove", width=5)
+        self.l1 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l1.place(x=25, y=27)
         
         self.TBSlabel = Label(self.ouputFrame, text='TBS INDEX', wraplength=245, anchor=W)
         self.TBSlabel.place(x=84, y=5)
-        self.l2 = Label(self.ouputFrame, text=100, borderwidth=2, relief="groove", width=5)
+        self.l2 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l2.place(x=95, y=27)
 
         self.TBSValuelabel = Label(self.ouputFrame, text='TBS VALUE', wraplength=245, anchor=W)
         self.TBSValuelabel.place(x=154, y=5)
-        self.l3 = Label(self.ouputFrame, text=75376, borderwidth=2, relief="groove", width=5)
+        self.l3 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l3.place(x=165, y=27)
 
         self.MODULADTIONlabel = Label(self.ouputFrame, text='MODULATION', wraplength=245, anchor=W)
         self.MODULADTIONlabel.place(x=229, y=5)
-        self.l4 = Label(self.ouputFrame, text='64 QAM', borderwidth=2, relief="groove", width=7)
+        self.l4 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=7)
         self.l4.place(x=240, y=27)
 
         self.RElabel = Label(self.ouputFrame, text='RE NUMBER', wraplength=245, anchor=W)
         self.RElabel.place(x=320, y=5)
-        self.l5 = Label(self.ouputFrame, text=84, borderwidth=2, relief="groove", width=5)
+        self.l5 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l5.place(x=335, y=27)
 
         self.CPlabel = Label(self.ouputFrame, text='SYMBOLS QUANT', wraplength=245, anchor=W)
         self.CPlabel.place(x=390, y=5)
-        self.l6 = Label(self.ouputFrame, text=7, borderwidth=2, relief="groove", width=5)
+        self.l6 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l6.place(x=420, y=27)
+
+        self.mensagemTAXA = Label(self.ouputFrame, text='TRANSMISSION RATE OF THE LTE RELEASE 10 SYSTEM', wraplength=295, anchor=W)
+        self.mensagemTAXA.place(x=100, y=65)
+
+        self.mensagemEquation = Label(self.ouputFrame, text='Equation', wraplength=200, anchor=W)
+        self.mensagemEquation.place(x=70, y=100)
+        self.l7 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=6)
+        self.l7.place(x=125, y=100)
+        self.mensagemMbps1 = Label(self.ouputFrame, text='Mbps', wraplength=200, anchor=W)
+        self.mensagemMbps1.place(x=175, y=100)
+
+        self.mensagemPattern = Label(self.ouputFrame, text='Pattern', wraplength=200, anchor=W)
+        self.mensagemPattern.place(x=280, y=100)
+        self.l8 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=7)
+        self.l8.place(x=330, y=100)
+        self.mensagemMbps2 = Label(self.ouputFrame, text='Mbps', wraplength=200, anchor=W)
+        self.mensagemMbps2.place(x=385, y=100)
+
+
 
     def naoFazNada(self):
         pass
