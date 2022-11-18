@@ -134,8 +134,6 @@ class Application:
         self.mensagemMbps2 = Label(self.ouputFrame, text='Mbps', wraplength=200, anchor=W)
         self.mensagemMbps2.place(x=385, y=100)
 
-
-
     def naoFazNada(self):
         pass
 
