@@ -1,26 +1,26 @@
 from dados import *
 
 class ResourceLTE:
-    def __init__(self, bw, prb, sp, cp, mimo, modulation, msc, tbs, valueTBS, carrieAggregation):
+    def __init__(self, bw='20 MHz', prb=100, sp=1200, cp='Normal', mimo='4x4', modulation='64 QAM', msc='28', indexTBS=26, valueTBS=75376, carrieAggregation=1):
         self.bw = bw
         self.prb = prb
         self.sp = sp
         self.cp = cp
         self.mimo = mimo
-        self.modulation = modulation
         self.msc = msc
-        self.tbs = tbs
+        self.modulation = modulation
+        self.indexTBS = indexTBS
         self.valueTBS = valueTBS
         self.carrieAggregation = carrieAggregation
 
     def calcTputLTE(self):
-        return (self.valueTBS * 1000 * self.mimo * self.carrieAggregation).__round(3)
+        return (self.valueTBS/1000 * self.mimo * self.carrieAggregation).__round__(3)
     
     def viewPRB(self):
         return self.prb
     
     def tbsIndex(self):
-        return self.tbs
+        return self.indexTBS
     
     def tbsValue(self):
         return self.valueTBS
@@ -30,4 +30,7 @@ class ResourceLTE:
     
     def viewResourceElement(self):
         return self.cp * (self.sp / self.prb)
+    
+    def viewCP(self):
+        return self.cp
     

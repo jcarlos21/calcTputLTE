@@ -13,9 +13,9 @@ vTBS = list()
 for i in range(len(v_TBS)):
     vTBS.append(list(map(int, v_TBS[i])))
 
-def valueTBS(valorTBS, valorRB):
-    id1 = tbsIndex.index(valorTBS)
+def valueTBS(valorIndiceTBS, valorRB):
+    id1 = tbsIndex.index(valorIndiceTBS)
     id2 = rb.index(valorRB)
-    print(id1)
-    print(id2)
+    # print(id1)
+    # print(id2)
     return vTBS[id1][id2]  # Valor do TBS com base em RB e índice TBS

@@ -4,6 +4,10 @@ from tkinter import Tk
 import tkinter as tk
 from tkinter import ttk
 
+from ResourceLTE import ResourceLTE
+import dados as dado
+import iTBS as modTBS
+
 
 class Application:
     def __init__(self, root):
@@ -36,49 +40,50 @@ class Application:
 
         self.testLabel = Label(self.inputFrame, text='BW', wraplength=245, anchor=W)
         self.testLabel.place(x=40, y=5)
-        bwChosen = StringVar()
-        bwChoose = ttk.Combobox(self.inputFrame, textvariable=bwChosen, width=10)
-        bwChoose['values'] = ['1.4 MHz', '3 MHz', '5 MHz', '10 MHz', '15 MHz', '20 MHz']
-        bwChoose.place(x=10, y=25)
-        bwChoose.current(0)
+        self.bwChosen = StringVar()
+        self.bwChoose = ttk.Combobox(self.inputFrame, textvariable=self.bwChosen, width=10)
+        self.bwChoose['values'] = ['1.4 MHz', '3 MHz', '5 MHz', '10 MHz', '15 MHz', '20 MHz']
+        self.bwChoose.place(x=10, y=25)
+        self.bwChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='CP', wraplength=245, anchor=W)
         self.testLabel.place(x=135, y=5)
-        cpChosen = StringVar()
-        cpChoose= ttk.Combobox(self.inputFrame, textvariable=cpChosen, width=10)
-        cpChoose['values'] = ['Normal', 'Extended']
-        cpChoose.place(x=106, y=25)
-        cpChoose.current(0)
+        self.cpChosen = StringVar()
+        self.cpChoose= ttk.Combobox(self.inputFrame, textvariable=self.cpChosen, width=10)
+        self.cpChoose['values'] = ['Normal', 'Extended']
+        self.cpChoose.place(x=106, y=25)
+        self.cpChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='MSC', wraplength=245, anchor=W)
         self.testLabel.place(x=230, y=5)
-        mscChosen = IntVar()
-        mscChoose= ttk.Combobox(self.inputFrame, textvariable=mscChosen, width=10)
-        mscChoose['values'] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
-        mscChoose.place(x=205, y=25)
-        mscChoose.current(0)
+        self.mscChosen = IntVar()
+        self.mscChoose= ttk.Combobox(self.inputFrame, textvariable=self.mscChosen, width=10)
+        self.mscChoose['values'] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+        self.mscChoose.place(x=205, y=25)
+        self.mscChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='MIMO', wraplength=245, anchor=W)
         self.testLabel.place(x=325, y=5)
-        mimoChosen = StringVar()
-        mimoChoose= ttk.Combobox(self.inputFrame, textvariable=mimoChosen, width=10)
-        mimoChoose['values'] = ['without mimo', '2x2', '4x4', '8x8']
-        mimoChoose.place(x=304, y=25)
-        mimoChoose.current(0)
+        self.mimoChosen = StringVar()
+        self.mimoChoose= ttk.Combobox(self.inputFrame, textvariable=self.mimoChosen, width=10)
+        self.mimoChoose['values'] = ['without mimo', '2x2', '4x4', '8x8']
+        self.mimoChoose.place(x=304, y=25)
+        self.mimoChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='CA', wraplength=245, anchor=W)
         self.testLabel.place(x=430, y=5)
-        caChosen = StringVar()
-        caChoose= ttk.Combobox(self.inputFrame, textvariable=caChosen, width=10)
-        caChoose['values'] = [1, 2, 3, 4, 5]
-        caChoose.place(x=402, y=25)
-        caChoose.current(0)
+        self.caChosen = StringVar()
+        self.caChoose= ttk.Combobox(self.inputFrame, textvariable=self.caChosen, width=10)
+        self.caChoose['values'] = [1, 2, 3, 4, 5]
+        self.caChoose.place(x=402, y=25)
+        self.caChoose.current(0)
 
         # Botão cálcular
 
-        botaoCalcular = Button(self.inputFrame, text="Calculate", borderwidth=3, cursor="hand2")
-        botaoCalcular['command'] = self.naoFazNada
-        botaoCalcular.place(x=217, y=60)
+        self.botaoCalcular = Button(self.inputFrame, text="Calculate", borderwidth=3, cursor="hand2")
+        self.botaoCalcular['command'] = self.calculateRate
+
+        self.botaoCalcular.place(x=217, y=60)
 
         # Parâmetros de Saída:
 
@@ -134,8 +139,36 @@ class Application:
         self.mensagemMbps2 = Label(self.ouputFrame, text='Mbps', wraplength=200, anchor=W)
         self.mensagemMbps2.place(x=385, y=100)
 
-    def naoFazNada(self):
-        pass
+    def calculateRate(self):
+
+        calculateLTE = ResourceLTE()
+
+        calculateLTE.bw = self.bwChosen.get()
+        calculateLTE.prb, calculateLTE.sp = dado.PRB_SP(calculateLTE.bw)
+        calculateLTE.cp = dado.CP(self.cpChosen.get())        
+        calculateLTE.mimo = dado.MIMO(self.mimoChosen.get())
+        calculateLTE.msc = int(self.mscChosen.get())
+        calculateLTE.modulation, calculateLTE.indexTBS = dado.modulation(calculateLTE.msc)  # Retorna uma string (Ex.: '64 QAM') e o valor do indice TBS
+        calculateLTE.valueTBS = int(modTBS.valueTBS(calculateLTE.indexTBS, calculateLTE.prb))
+        calculateLTE.carrieAggregation = int(self.caChosen.get())
+
+        self.l1['text'] = calculateLTE.viewPRB()
+        self.l2['text'] = calculateLTE.tbsIndex()
+        self.l3['text'] = calculateLTE.tbsValue()
+        self.l4['text'] = calculateLTE.viewModulation()
+        self.l5['text'] = calculateLTE.viewResourceElement()
+        self.l6['text'] = calculateLTE.viewCP()
+
+        self.l7['text'] = calculateLTE.calcTputLTE().__round__(2)
+
+        self.l8['text'] = calculateLTE.calcTputLTE()
+        
+
+        
+
+        # calculateLTE.
+
+        # self.l8['text'] = retorno de algo
 
     def exitLogin(self):
         result = messagebox.askquestion('System', 'Are you sure you want to exit?', icon="warning")
