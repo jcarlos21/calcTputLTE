@@ -29,7 +29,7 @@ class ResourceLTE:
         return self.modulation
     
     def viewResourceElement(self):
-        return self.cp * (self.sp / self.prb)
+        return self.cp * int(self.sp / self.prb)
     
     def viewCP(self):
         return self.cp

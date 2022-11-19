@@ -44,7 +44,7 @@ class Application:
         self.bwChoose = ttk.Combobox(self.inputFrame, textvariable=self.bwChosen, width=10)
         self.bwChoose['values'] = ['1.4 MHz', '3 MHz', '5 MHz', '10 MHz', '15 MHz', '20 MHz']
         self.bwChoose.place(x=10, y=25)
-        self.bwChoose.current(0)
+        # self.bwChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='CP', wraplength=245, anchor=W)
         self.testLabel.place(x=135, y=5)
@@ -52,15 +52,15 @@ class Application:
         self.cpChoose= ttk.Combobox(self.inputFrame, textvariable=self.cpChosen, width=10)
         self.cpChoose['values'] = ['Normal', 'Extended']
         self.cpChoose.place(x=106, y=25)
-        self.cpChoose.current(0)
+        # self.cpChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='MSC', wraplength=245, anchor=W)
         self.testLabel.place(x=230, y=5)
-        self.mscChosen = IntVar()
+        self.mscChosen = StringVar()
         self.mscChoose= ttk.Combobox(self.inputFrame, textvariable=self.mscChosen, width=10)
         self.mscChoose['values'] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
         self.mscChoose.place(x=205, y=25)
-        self.mscChoose.current(0)
+        self.mscChoose.current()
 
         self.testLabel = Label(self.inputFrame, text='MIMO', wraplength=245, anchor=W)
         self.testLabel.place(x=325, y=5)
@@ -68,7 +68,7 @@ class Application:
         self.mimoChoose= ttk.Combobox(self.inputFrame, textvariable=self.mimoChosen, width=10)
         self.mimoChoose['values'] = ['without mimo', '2x2', '4x4', '8x8']
         self.mimoChoose.place(x=304, y=25)
-        self.mimoChoose.current(0)
+        # self.mimoChoose.current(0)
 
         self.testLabel = Label(self.inputFrame, text='CA', wraplength=245, anchor=W)
         self.testLabel.place(x=430, y=5)
@@ -76,7 +76,7 @@ class Application:
         self.caChoose= ttk.Combobox(self.inputFrame, textvariable=self.caChosen, width=10)
         self.caChoose['values'] = [1, 2, 3, 4, 5]
         self.caChoose.place(x=402, y=25)
-        self.caChoose.current(0)
+        # self.caChoose.current(0)
 
         # Botão cálcular
 
