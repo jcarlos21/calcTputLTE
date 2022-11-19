@@ -158,9 +158,7 @@ class Application:
         self.l4['text'] = calculateLTE.viewModulation()
         self.l5['text'] = calculateLTE.viewResourceElement()
         self.l6['text'] = calculateLTE.viewCP()
-
         self.l7['text'] = calculateLTE.calcTputLTE().__round__(2)
-
         self.l8['text'] = calculateLTE.calcTputLTE()
         
 
