@@ -16,6 +16,4 @@ for i in range(len(v_TBS)):
 def valueTBS(valorIndiceTBS, valorRB):
     id1 = tbsIndex.index(valorIndiceTBS)
     id2 = rb.index(valorRB)
-    # print(id1)
-    # print(id2)
     return vTBS[id1][id2]  # Valor do TBS com base em RB e índice TBS
