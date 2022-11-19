@@ -161,13 +161,6 @@ class Application:
         self.l7['text'] = calculateLTE.calcTputLTE().__round__(2)
         self.l8['text'] = calculateLTE.calcTputLTE()
         
-
-        
-
-        # calculateLTE.
-
-        # self.l8['text'] = retorno de algo
-
     def exitLogin(self):
         result = messagebox.askquestion('System', 'Are you sure you want to exit?', icon="warning")
         if result == 'yes':
