@@ -5,4 +5,4 @@ Para executar o software basta inicial o terminal do sistema opericional, navega
 
 python main.py
 
-Logo após é precisar entrar com os parâmetros de para realizar o cálculo.
+Logo após é precisar entrar com os parâmetros para realizar o cálculo.
