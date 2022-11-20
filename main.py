@@ -162,9 +162,7 @@ class Application:
         if result == 'yes':
             self.root.destroy()  
 
-
 root = Tk()
 Application(root)
-# root.mainloop()
 if __name__ == "__main__":
     root.mainloop()
