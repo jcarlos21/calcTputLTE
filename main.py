@@ -118,7 +118,7 @@ class Application:
         self.l6 = Label(self.ouputFrame, borderwidth=2, relief="groove", width=5)
         self.l6.place(x=420, y=27)
 
-        self.mensagemTAXA = Label(self.ouputFrame, text='TRANSMISSION RATE OF THE LTE RELEASE 10 SYSTEM', wraplength=295, anchor=W)
+        self.mensagemTAXA = Label(self.ouputFrame, text='TRANSMISSION RATE OF THE LTE RELEASE 10 SYSTEMS', wraplength=295, anchor=W)
         self.mensagemTAXA.place(x=100, y=65)
 
         self.mensagemEquation = Label(self.ouputFrame, text='Equation', wraplength=200, anchor=W)
