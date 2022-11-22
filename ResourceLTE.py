@@ -1,5 +1,3 @@
-from dados import *
-
 class ResourceLTE:
     def __init__(self, bw='20 MHz', prb=100, sp=1200, cp='Normal', mimo='4x4', modulation='64 QAM', msc='28', indexTBS=26, valueTBS=75376, carrieAggregation=1):
         self.bw = bw
