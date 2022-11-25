@@ -1,7 +1,6 @@
 from tkinter import messagebox
 from tkinter import *
 from tkinter import Tk
-import tkinter as tk
 from tkinter import ttk
 
 from ResourceLTE import ResourceLTE
