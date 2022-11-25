@@ -53,7 +53,7 @@ class Application:
         self.cpChoose['values'] = ['Normal', 'Extended']
         self.cpChoose.place(x=106, y=25)
 
-        self.testLabel = Label(self.inputFrame, text='MSC', wraplength=245, anchor=W)
+        self.testLabel = Label(self.inputFrame, text='MCS', wraplength=245, anchor=W)
         self.testLabel.place(x=230, y=5)
         self.mscChosen = StringVar()
         self.mscChoose= ttk.Combobox(self.inputFrame, textvariable=self.mscChosen, width=10)
